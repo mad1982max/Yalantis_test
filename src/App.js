@@ -1,7 +1,9 @@
 import "./App.css";
+import Header from "./Components/Header/Header.jsx";
 
-const App = () => {
-  return <div className="App">Hello</div>;
-};
-
+const App = () => (
+  <div className="App">
+    <Header />
+  </div>
+);
 export default App;
