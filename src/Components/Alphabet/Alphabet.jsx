@@ -16,14 +16,15 @@ const Alphabet = ({ emplList, checkPerson }) => {
           {peopleByLetter.length > 0
             ? peopleByLetter.map((item, i) => (
                 <div key={item + i} className="alpha-people">
-                  <label htmlFor="employee">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="employee"
+                      id={item.id}
+                      onChange={checkBoxClick}
+                    />
                     {item.lastName} {item.firstName}
                   </label>
-                  <input
-                    type="checkbox"
-                    name="employee"
-                    onChange={checkBoxClick}
-                  />
                 </div>
               ))
             : "--"}

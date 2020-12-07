@@ -5,4 +5,37 @@
 
 .alpha-header {
   font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.alpha-people {
+  padding: 4px;
+}
+
+label {
+  padding: 3px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  flex: none;
+}
+
+label:hover,
+input:hover {
+  cursor: pointer;
+  background: rgb(238, 236, 236);
+  border-radius: 2px;
+}
+
+.alpha {
+  padding: 4px;
+  border-radius: 50%;
+  background: rgb(37, 37, 37);
+  color: aliceblue;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin: 5px auto;
 }
