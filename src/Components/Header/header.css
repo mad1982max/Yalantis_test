@@ -1,3 +1,8 @@
+.header {
+  position: fixed;
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -19,7 +24,7 @@ li a {
 }
 
 li:hover {
-  background-color: #ccc9c9;
+  background-color: #dfdbdb;
 }
 
 .selected {
