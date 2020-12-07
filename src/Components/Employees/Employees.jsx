@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Alphabet from "../Alphabet/Alphabet";
+import Birthdays from "../Birthdays/Birthdays";
 import APIEmployees from "../../Services/api";
 import "./employees.css";
 
@@ -9,7 +11,6 @@ const Employees = () => {
     const getEmplyees = async () => {
       try {
         let response = await APIEmployees.get();
-        console.log(response);
         setEmployees(response.data);
       } catch (error) {
         console.log("some error", error);
@@ -17,8 +18,15 @@ const Employees = () => {
     };
 
     getEmplyees();
+    //only once
   }, []);
-  return <div className="employees">Employees {employees.length}</div>;
+
+  return (
+    <div className="employees-wrapper">
+      <Alphabet />
+      <Birthdays />
+    </div>
+  );
 };
 
 export default Employees;
