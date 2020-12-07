@@ -8,14 +8,10 @@ const Alphabet = (props) => {
       <div className="alpha-header">EMPLOYEES</div>
       {constants.alphabet.map((alpha, i) => {
         return (
-          <>
-            <div key={alpha.toString()} className="alpha-group">
-              {/* <div className="alpha">
-                {alpha}
-              </div> */}
-              {/* <div className="alpha-people"></div> */}
-            </div>
-          </>
+          <div key={alpha.toString()} className="alpha-group">
+            <div className="alpha">{alpha}</div>
+            <div className="alpha-people"></div>
+          </div>
         );
       })}
     </div>
