@@ -4,7 +4,9 @@ import constants from "../../Shares/constants";
 
 const Alphabet = ({ emplList, checkPerson }) => {
   const findPeopleByLetter = (array, letter) =>
-    array.filter((item) => item.lastName.startsWith(letter.toUpperCase()));
+    array
+      .filter((item) => item.lastName.startsWith(letter.toUpperCase()))
+      .sort((a, b) => (a.lastName > b.lastName ? 1 : -1));
 
   const letterBlock = () => {
     return constants.alphabet.map((alpha) => {
