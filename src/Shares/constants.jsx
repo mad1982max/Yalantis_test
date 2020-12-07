@@ -1,5 +1,33 @@
 const constants = {
   url: "https://yalantis-react-school-api.yalantis.com/api/task0/users",
+  alphabet: [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ],
 };
 
 export default constants;

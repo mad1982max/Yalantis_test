@@ -21,9 +21,13 @@ const Employees = () => {
     //only once
   }, []);
 
+  const handleCheckPerson = () => {
+    console.log("--catched on Parent");
+  };
+
   return (
     <div className="employees-wrapper">
-      <Alphabet />
+      <Alphabet emplList={employees} checkPerson={handleCheckPerson} />
       <Birthdays />
     </div>
   );
