@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./alphabet.css";
 import constants from "../../Shares/constants";
 
 const Alphabet = ({ emplList, checkPerson }) => {
+  const [checkedArr, setCheckedArr] = useState([]);
+
   const findPeopleByLetter = (array, letter) =>
     array
       .filter((item) => item.lastName.startsWith(letter.toUpperCase()))
@@ -17,7 +19,7 @@ const Alphabet = ({ emplList, checkPerson }) => {
           <div className="alpha">{alpha.toUpperCase()}</div>
           {peopleByLetter.length > 0
             ? peopleByLetter.map((item, i) => (
-                <div key={item + i} className="alpha-people">
+                <div key={item.id} className="alpha-people">
                   <label>
                     <input
                       type="checkbox"
@@ -36,7 +38,21 @@ const Alphabet = ({ emplList, checkPerson }) => {
   };
 
   const checkBoxClick = (e) => {
-    console.log("click");
+    let id = e.target.id;
+
+    if (checkIfExist(checkedArr, id) > -1) {
+      console.log("del");
+      setCheckedArr(checkedArr.filter((item) => item !== id));
+    } else {
+      console.log("add");
+      setCheckedArr([...checkedArr, id]);
+    }
+
+    console.log("--", checkedArr);
+  };
+
+  const checkIfExist = (arr, id) => {
+    return arr.indexOf(id);
   };
 
   return (
