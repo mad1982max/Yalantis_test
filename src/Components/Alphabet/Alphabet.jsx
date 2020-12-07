@@ -38,22 +38,16 @@ const Alphabet = ({ emplList, checkPerson }) => {
   };
 
   const checkBoxClick = (e) => {
-    let id = e.target.id;
+    const id = e.target.id;
 
     if (checkIfExist(checkedArr, id) > -1) {
-      console.log("del");
       setCheckedArr(checkedArr.filter((item) => item !== id));
     } else {
-      console.log("add");
       setCheckedArr([...checkedArr, id]);
     }
-
-    console.log("--", checkedArr);
   };
 
-  const checkIfExist = (arr, id) => {
-    return arr.indexOf(id);
-  };
+  const checkIfExist = (arr, id) => arr.indexOf(id);
 
   return (
     <div className="alphabet-wrapper">
