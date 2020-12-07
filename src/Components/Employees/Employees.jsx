@@ -6,6 +6,7 @@ import "./employees.css";
 
 const Employees = () => {
   const [employees, setEmployees] = useState([]);
+  const [checkedEmployees, setCheckedEmployees] = useState([]);
 
   useEffect(() => {
     const getEmplyees = async () => {
@@ -21,14 +22,15 @@ const Employees = () => {
     //only once
   }, []);
 
-  const handleCheckPerson = () => {
-    console.log("--catched on Parent");
+  const handleCheckPerson = (data) => {
+    console.log("--catched on Parent", data);
+    setCheckedEmployees(...data);
   };
 
   return (
     <div className="employees-wrapper">
       <Alphabet emplList={employees} checkPerson={handleCheckPerson} />
-      <Birthdays />
+      <Birthdays checked={checkedEmployees} />
     </div>
   );
 };

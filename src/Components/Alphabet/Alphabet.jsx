@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./alphabet.css";
 import constants from "../../Shares/constants";
 
 const Alphabet = ({ emplList, checkPerson }) => {
   const [checkedArr, setCheckedArr] = useState([]);
+
+  useEffect(() => {
+    checkPerson(checkedArr);
+  }, [checkedArr, checkPerson]);
 
   const findPeopleByLetter = (array, letter) =>
     array
