@@ -1,5 +1,19 @@
 const constants = {
   url: "https://yalantis-react-school-api.yalantis.com/api/task0/users",
+  monthes: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
   alphabet: [
     "a",
     "b",

@@ -24,7 +24,7 @@ const Employees = () => {
 
   const handleCheckPerson = (data) => {
     console.log("--catched on Parent", data);
-    setCheckedEmployees(...data);
+    setCheckedEmployees(data);
   };
 
   return (

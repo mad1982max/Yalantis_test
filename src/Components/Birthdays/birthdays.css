@@ -1,5 +1,8 @@
 .birthdays-wrapper {
   width: 50%;
   background: rgb(159, 247, 218);
+}
+
+.birthdays-header {
   font-size: 24px;
 }
