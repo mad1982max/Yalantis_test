@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Yalantis_test/static/css/main.1b694f66.chunk.css",
-    "main.js": "/Yalantis_test/static/js/main.d2ce5da1.chunk.js",
-    "main.js.map": "/Yalantis_test/static/js/main.d2ce5da1.chunk.js.map",
+    "main.js": "/Yalantis_test/static/js/main.c14c0c03.chunk.js",
+    "main.js.map": "/Yalantis_test/static/js/main.c14c0c03.chunk.js.map",
     "runtime-main.js": "/Yalantis_test/static/js/runtime-main.cae5b3ca.js",
     "runtime-main.js.map": "/Yalantis_test/static/js/runtime-main.cae5b3ca.js.map",
     "static/js/2.ca3500a4.chunk.js": "/Yalantis_test/static/js/2.ca3500a4.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cae5b3ca.js",
     "static/js/2.ca3500a4.chunk.js",
     "static/css/main.1b694f66.chunk.css",
-    "static/js/main.d2ce5da1.chunk.js"
+    "static/js/main.c14c0c03.chunk.js"
   ]
 }
