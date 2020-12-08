@@ -1,8 +1,37 @@
 .birthdays-wrapper {
   width: 50%;
-  background: rgb(159, 247, 218);
+  background: rgb(230, 231, 231);
+  border-left: 1px solid rgb(136, 136, 136);
 }
 
 .birthdays-header {
   font-size: 24px;
+  text-align: center;
+}
+
+.birthdays-header span {
+  border-bottom: 1px solid rgb(44, 44, 44);
+}
+
+.month span {
+  background: rgb(41, 40, 40);
+  color: aliceblue;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.month {
+  margin: 25px 15px 8px 15px;
+}
+
+.month-people {
+  padding: 3px 15px;
+}
+
+.message {
+  font-size: 20px;
+  color: rgb(214, 31, 31);
+  margin-top: 15px;
+  text-align: center;
 }

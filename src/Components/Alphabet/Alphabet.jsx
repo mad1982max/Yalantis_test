@@ -7,7 +7,7 @@ const Alphabet = ({ emplList, checkPerson }) => {
 
   useEffect(() => {
     checkPerson(checkedArr);
-  }, [checkedArr, checkPerson]);
+  }, [checkedArr]);
 
   const findPeopleByLetter = (array, letter) =>
     array
@@ -21,21 +21,23 @@ const Alphabet = ({ emplList, checkPerson }) => {
       return (
         <div key={alpha} className="alpha-group">
           <div className="alpha">{alpha.toUpperCase()}</div>
-          {peopleByLetter.length > 0
-            ? peopleByLetter.map((item, i) => (
-                <div key={item.id} className="alpha-people">
-                  <label>
-                    <input
-                      type="checkbox"
-                      name="employee"
-                      id={item.id}
-                      onChange={checkBoxClick}
-                    />
-                    {item.lastName} {item.firstName}
-                  </label>
-                </div>
-              ))
-            : "--"}
+          {peopleByLetter.length > 0 ? (
+            peopleByLetter.map((item, i) => (
+              <div key={item.id} className="alpha-people">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="employee"
+                    id={item.id}
+                    onChange={checkBoxClick}
+                  />
+                  {item.lastName} {item.firstName}
+                </label>
+              </div>
+            ))
+          ) : (
+            <div className="empty">---</div>
+          )}
         </div>
       );
     });
@@ -44,18 +46,21 @@ const Alphabet = ({ emplList, checkPerson }) => {
   const checkBoxClick = (e) => {
     const id = e.target.id;
 
-    if (checkIfExist(checkedArr, id) > -1) {
-      setCheckedArr(checkedArr.filter((item) => item !== id));
+    if (findUserById(checkedArr, id)) {
+      setCheckedArr(checkedArr.filter((item) => item.id !== id));
     } else {
-      setCheckedArr([...checkedArr, id]);
+      const worker = findUserById(emplList, id);
+      setCheckedArr([...checkedArr, worker]);
     }
   };
 
-  const checkIfExist = (arr, id) => arr.indexOf(id);
+  const findUserById = (arr, id) => arr.find((item) => item.id === id);
 
   return (
     <div className="alphabet-wrapper">
-      <div className="alpha-header">EMPLOYEES</div>
+      <div className="alpha-header">
+        <span>EMPLOYEES</span>
+      </div>
       {emplList.length > 0 && letterBlock()}
     </div>
   );

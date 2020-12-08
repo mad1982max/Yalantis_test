@@ -1,11 +1,17 @@
 .alphabet-wrapper {
   width: 50%;
-  background: rgb(247, 159, 159);
+  background: rgb(114, 109, 109);
+  text-align: center;
+  color: aliceblue;
 }
 
 .alpha-header {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.alpha-header span {
+  border-bottom: 1px solid aliceblue;
 }
 
 .alpha-people {
@@ -18,15 +24,12 @@ label {
   align-items: center;
 }
 
-input[type="checkbox"] {
-  flex: none;
-}
-
 label:hover,
 input:hover {
   cursor: pointer;
   background: rgb(238, 236, 236);
   border-radius: 2px;
+  color: rgb(37, 37, 37);
 }
 
 .alpha {
@@ -38,4 +41,9 @@ input:hover {
   height: 20px;
   line-height: 20px;
   margin: 5px auto;
+}
+
+.empty {
+  text-align: left;
+  padding-left: 10px;
 }
