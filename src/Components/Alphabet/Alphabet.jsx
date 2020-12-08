@@ -4,11 +4,9 @@ import constants from "../../Shares/constants";
 
 const Alphabet = ({ emplList, checkPerson }) => {
   const [checkedArr, setCheckedArr] = useState([]);
-  const [checkedItems, setCheckedItems] = useState(new Map());
 
   useEffect(() => {
     checkPerson(checkedArr);
-    console.log(checkedArr.length);
   }, [checkedArr]);
 
   const findPeopleByLetter = (array, letter) =>
@@ -31,7 +29,6 @@ const Alphabet = ({ emplList, checkPerson }) => {
                     type="checkbox"
                     name={item.id}
                     id={item.id}
-                    checked={checkedItems.get(item.name)}
                     onChange={checkBoxClick}
                   />
                   {item.lastName} {item.firstName}
@@ -48,9 +45,6 @@ const Alphabet = ({ emplList, checkPerson }) => {
 
   const checkBoxClick = (e) => {
     const name = e.target.name;
-    const isChecked = e.target.checked;
-
-    setCheckedItems((checkedItems) => checkedItems.set(name, isChecked));
 
     if (findUserById(checkedArr, name)) {
       setCheckedArr(checkedArr.filter((item) => item.id !== name));
