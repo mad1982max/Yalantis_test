@@ -4,7 +4,7 @@ import constants from "../../Shares/constants";
 
 const Alphabet = ({ emplList, checkPerson }) => {
   const [checkedItem, setCheckedItem] = useState(
-    JSON.parse(localStorage.getItem("test")) || []
+    JSON.parse(localStorage.getItem(constants.localStorageKey)) || []
   );
 
   useEffect(() => {
@@ -60,7 +60,10 @@ const Alphabet = ({ emplList, checkPerson }) => {
       upgradedDataList = [...checkedItem, name];
     }
     setCheckedItem(upgradedDataList);
-    localStorage.setItem("test", JSON.stringify(upgradedDataList));
+    localStorage.setItem(
+      constants.localStorageKey,
+      JSON.stringify(upgradedDataList)
+    );
   };
 
   return (
