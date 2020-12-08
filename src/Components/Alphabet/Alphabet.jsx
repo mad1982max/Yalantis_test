@@ -1,13 +1,20 @@
-import React, { useState, useEffect, useLocalStorage } from "react";
+import React, { useState, useEffect } from "react";
 import "./alphabet.css";
 import constants from "../../Shares/constants";
 
 const Alphabet = ({ emplList, checkPerson }) => {
-  const [checkedArr, setCheckedArr] = useState([]);
+  const [checkedItem, setCheckedItem] = useState(
+    JSON.parse(localStorage.getItem("test")) || []
+  );
 
   useEffect(() => {
+    let checkedArr = [];
+    for (let checkedID of checkedItem) {
+      let man = emplList.find((man) => man.id === checkedID);
+      if (man) checkedArr.push(man);
+    }
     checkPerson(checkedArr);
-  }, [checkedArr]);
+  }, [checkedItem]);
 
   const findPeopleByLetter = (array, letter) =>
     array
@@ -29,6 +36,7 @@ const Alphabet = ({ emplList, checkPerson }) => {
                     type="checkbox"
                     name={item.id}
                     id={item.id}
+                    checked={checkedItem.includes(item.id)}
                     onChange={checkBoxClick}
                   />
                   {item.lastName} {item.firstName}
@@ -45,16 +53,15 @@ const Alphabet = ({ emplList, checkPerson }) => {
 
   const checkBoxClick = (e) => {
     const name = e.target.name;
-
-    if (findUserById(checkedArr, name)) {
-      setCheckedArr(checkedArr.filter((item) => item.id !== name));
+    let upgradedDataList = [];
+    if (checkedItem.includes(name)) {
+      upgradedDataList = checkedItem.filter((item) => item !== name);
     } else {
-      const worker = findUserById(emplList, name);
-      setCheckedArr([...checkedArr, worker]);
+      upgradedDataList = [...checkedItem, name];
     }
+    setCheckedItem(upgradedDataList);
+    localStorage.setItem("test", JSON.stringify(upgradedDataList));
   };
-
-  const findUserById = (arr, id) => arr.find((item) => item.id === id);
 
   return (
     <div className="alphabet-wrapper">

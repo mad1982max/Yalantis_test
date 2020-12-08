@@ -4,8 +4,6 @@ import Main from "./Components/Main/Main.jsx";
 import Employees from "./Components/Employees/Employees";
 import Error from "./Components/Error/Error";
 
-console.log("--", process.env.PUBLIC_URL);
-
 const App = () => (
   <Router basename={process.env.PUBLIC_URL}>
     <div className="App">
