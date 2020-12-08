@@ -1,11 +1,17 @@
 import Header from "./Components/Header/Header.jsx";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  HashRouter,
+  HashRouter,
+} from "react-router-dom";
 import Main from "./Components/Main/Main.jsx";
 import Employees from "./Components/Employees/Employees";
 import Error from "./Components/Error/Error";
 
 const App = () => (
-  <Router basename={process.env.PUBLIC_URL}>
+  <HashRouter basename={process.env.PUBLIC_URL}>
     <div className="App">
       <Header />
 
@@ -15,6 +21,6 @@ const App = () => (
         <Route path="*" component={Error} />
       </Switch>
     </div>
-  </Router>
+  </HashRouter>
 );
 export default App;
