@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLocalStorage } from "react";
 import "./alphabet.css";
 import constants from "../../Shares/constants";
 
 const Alphabet = ({ emplList, checkPerson }) => {
   const [checkedArr, setCheckedArr] = useState([]);
+  const [checkedItems, setCheckedItems] = useState(new Map());
 
   useEffect(() => {
     checkPerson(checkedArr);
+    console.log(checkedArr.length);
   }, [checkedArr]);
 
   const findPeopleByLetter = (array, letter) =>
@@ -27,8 +29,9 @@ const Alphabet = ({ emplList, checkPerson }) => {
                 <label>
                   <input
                     type="checkbox"
-                    name="employee"
+                    name={item.id}
                     id={item.id}
+                    checked={checkedItems.get(item.name)}
                     onChange={checkBoxClick}
                   />
                   {item.lastName} {item.firstName}
@@ -44,12 +47,15 @@ const Alphabet = ({ emplList, checkPerson }) => {
   };
 
   const checkBoxClick = (e) => {
-    const id = e.target.id;
+    const name = e.target.name;
+    const isChecked = e.target.checked;
 
-    if (findUserById(checkedArr, id)) {
-      setCheckedArr(checkedArr.filter((item) => item.id !== id));
+    setCheckedItems((checkedItems) => checkedItems.set(name, isChecked));
+
+    if (findUserById(checkedArr, name)) {
+      setCheckedArr(checkedArr.filter((item) => item.id !== name));
     } else {
-      const worker = findUserById(emplList, id);
+      const worker = findUserById(emplList, name);
       setCheckedArr([...checkedArr, worker]);
     }
   };
