@@ -1,11 +1,5 @@
 import Header from "./Components/Header/Header.jsx";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  HashRouter,
-  HashRouter,
-} from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 import Main from "./Components/Main/Main.jsx";
 import Employees from "./Components/Employees/Employees";
 import Error from "./Components/Error/Error";
